@@ -1,6 +1,4 @@
 version: '3'
-volumes:
-  dados:
 networks:
   db:
   web:
@@ -13,6 +11,8 @@ services:
       #- dados:/var/lib/postgresql/data
       - ./scripts:/scripts
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      #definir nome diretorio
+      - ./pg-banco:/var/lib/postgresql/data
     networks:
       - db
   web:
